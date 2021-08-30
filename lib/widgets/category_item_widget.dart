@@ -22,7 +22,10 @@ class CategoryItemWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Center(
-        child: Text(title),
+        child: Text(
+          title,
+          style: Theme.of(context).textTheme.headline6,
+        ),
       ),
     );
   }
