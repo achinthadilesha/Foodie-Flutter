@@ -25,7 +25,11 @@ class CategoroiesScreen extends StatelessWidget {
         ),
         //* ----------------- grid-view children -----------------
         children: categories.map((categoryTile) {
-          return CategoryItemWidget(categoryTile.title, categoryTile.color);
+          return CategoryItemWidget(
+            categoryTile.id,
+            categoryTile.title,
+            categoryTile.color,
+          );
         }).toList(),
       ),
     );
