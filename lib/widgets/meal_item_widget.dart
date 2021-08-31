@@ -9,6 +9,7 @@ class MealItemWidget extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
+  final Function? deleteHandler;
 
   MealItemWidget({
     required this.id,
@@ -17,6 +18,7 @@ class MealItemWidget extends StatelessWidget {
     required this.duration,
     required this.complexity,
     required this.affordability,
+    this.deleteHandler,
   });
 
   String get complexityText {
@@ -61,7 +63,11 @@ class MealItemWidget extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.of(context)
-            .pushNamed(CategoryMealDetailScreen.routeName, arguments: id);
+            .pushNamed(CategoryMealDetailScreen.routeName, arguments: id)
+            .then((mealId) {
+          print('passing data back value is $mealId');
+          deleteHandler!(mealId);
+        });
       },
       child: Card(
         shape: RoundedRectangleBorder(
