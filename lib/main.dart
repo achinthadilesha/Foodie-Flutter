@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/screens/category_meal_detail_screen.dart';
 import 'package:foodie/screens/category_meals_screen.dart';
+import 'package:foodie/screens/filter_screen.dart';
+import 'package:foodie/screens/tab_screen.dart';
 
 import './screens/catergories_screen.dart';
 
@@ -34,11 +37,15 @@ class Foodie extends StatelessWidget {
             ),
       ),
       //* ----------------- home-screen -----------------
-      home: CategoroiesScreen(),
-
+      // home: TabScreen(),
+      initialRoute: '/',
       //* ----------------- routes -----------------
       routes: {
+        '/': (context) => TabScreen(),
         CategoryMealsScreen.routeName: (context) => CategoryMealsScreen(),
+        CategoryMealDetailScreen.routeName: (context) =>
+            CategoryMealDetailScreen(),
+        FiltersScreen.routeName: (context) => FiltersScreen(),
       },
     );
   }

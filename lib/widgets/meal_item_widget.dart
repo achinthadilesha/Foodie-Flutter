@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/models/meal.dart';
+import 'package:foodie/screens/category_meal_detail_screen.dart';
 
 class MealItemWidget extends StatelessWidget {
+  final String id;
   final String title;
   final String imageUrl;
   final int duration;
@@ -9,6 +11,7 @@ class MealItemWidget extends StatelessWidget {
   final Affordability affordability;
 
   MealItemWidget({
+    required this.id,
     required this.title,
     required this.imageUrl,
     required this.duration,
@@ -56,7 +59,10 @@ class MealItemWidget extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context)
+            .pushNamed(CategoryMealDetailScreen.routeName, arguments: id);
+      },
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
